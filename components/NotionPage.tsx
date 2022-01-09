@@ -19,18 +19,14 @@ import { getBlockTitle } from "notion-utils";
 import { mapPageUrl, getCanonicalPageUrl } from "lib/map-page-url";
 import { mapNotionImageUrl } from "lib/map-image-url";
 import { getPageDescription } from "lib/get-page-description";
-import { getPageTweet } from "lib/get-page-tweet";
 import * as types from "lib/types";
 import * as config from "lib/config";
 
 // components
-import { CustomFont } from "./CustomFont";
 import { Loading } from "./Loading";
 import { Page404 } from "./Page404";
 import { PageHead } from "./PageHead";
-import { PageActions } from "./PageActions";
 import { Footer } from "./Footer";
-import { PageSocial } from "./PageSocial";
 
 import styles from "./styles.module.css";
 
@@ -79,13 +75,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const canonicalPageUrl =
     !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId);
 
-  // const isRootPage =
-  //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
-  const isBlogPost =
-    block.type === "page" && block.parent_table === "collection";
-  const showTableOfContents = !!isBlogPost;
-  const minTableOfContentsItems = 3;
-
   const socialImage = mapNotionImageUrl(
     (block as PageBlock).format?.page_cover || config.defaultPageCover,
     block
@@ -93,18 +82,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const socialDescription =
     getPageDescription(block, recordMap) ?? config.description;
-
-  let pageAside: React.ReactChild = null;
-
-  // only display comments and page actions on blog post pages
-  if (isBlogPost) {
-    const tweet = getPageTweet(block, recordMap);
-    if (tweet) {
-      pageAside = <PageActions tweet={tweet} />;
-    }
-  } else {
-    pageAside = <PageSocial />;
-  }
 
   return (
     <TwitterContextProvider
@@ -200,14 +177,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
         rootPageId={site.rootNotionPageId}
         previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
-        showTableOfContents={showTableOfContents}
-        minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
         defaultPageCover={config.defaultPageCover}
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
-        pageAside={pageAside}
         footer={<Footer />}
       />
     </TwitterContextProvider>
