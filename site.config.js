@@ -1,20 +1,20 @@
 module.exports = {
   // where it all starts -- the site's root Notion page (required)
-  rootNotionPageId: '9ad8a41d862c436383037f318dfe2a7a',
+  rootNotionPageId: "9ad8a41d862c436383037f318dfe2a7a",
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: null,
+  rootNotionSpaceId: "019909a0-3a7c-4834-8a9f-48f82efcdc8d",
 
   // basic site info (required)
-  name: 'Progressive Perspektive',
-  domain: 'progressiveperspektive.org',
-  author: 'Progressive Perspektive',
+  name: "Progressive Perspektive",
+  domain: "progressiveperspektive.org",
+  author: "Progressive Perspektive",
 
   // open graph metadata (optional)
-  description: 'Example site description',
-  socialImageTitle: 'Progressive Perspektive',
-  socialImageSubtitle: 'Hello World! 👋',
+  description: "Example site description",
+  socialImageTitle: "Progressive Perspektive",
+  socialImageSubtitle: "Hello World! 👋",
 
   // social usernames (optional)
   twitter: null,
@@ -47,5 +47,5 @@ module.exports = {
   //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
   //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
   // }
-  pageUrlOverrides: null
-}
+  pageUrlOverrides: null,
+};
