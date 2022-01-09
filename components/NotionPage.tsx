@@ -8,7 +8,6 @@ import { PageBlock } from "notion-types";
 
 import { Tweet, TwitterContextProvider } from "react-static-tweets";
 
-// core notion renderer
 import {
   NotionRenderer,
   Code,
@@ -16,7 +15,6 @@ import {
   CollectionRow,
 } from "react-notion-x";
 
-// utils
 import { getBlockTitle } from "notion-utils";
 import { mapPageUrl, getCanonicalPageUrl } from "lib/map-page-url";
 import { mapNotionImageUrl } from "lib/map-image-url";
