@@ -48,7 +48,6 @@ export async function createPreviewImage(
 
     const { body } = await got(url, { responseType: "buffer" });
     const result = await lqip(body);
-    g("lqip", result.metadata);
 
     const image = {
       url,
