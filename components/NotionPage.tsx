@@ -175,11 +175,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         recordMap={recordMap}
         fullPage={true}
         rootPageId={site.rootNotionPageId}
-        previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
-        defaultPageIcon={config.defaultPageIcon}
-        defaultPageCover={config.defaultPageCover}
-        defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
         footer={<Footer />}
