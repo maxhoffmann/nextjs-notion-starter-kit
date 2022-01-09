@@ -163,7 +163,6 @@
 
 .notion-title {
   display: block;
-  text-align: center;
 }
 
 .notion-collection-column-title {
@@ -179,21 +178,14 @@
   padding: 0;
 }
 
-.notion-page-cover {
-  max-width: 1200px;
-  border-radius: 24px;
-  box-shadow: 2px 2px 8px 4px rgba(15, 15, 15, 0.1);
-}
-
 @media only screen and (max-width: 1200px) {
   .notion-page-cover {
     border-radius: 0;
   }
 }
 
-.notion-block-ab9a258d6cf444f3bb40dc2600feae91 .notion-page-link {
-  justify-content: center;
-  padding: 2em;
+.notion-page-link .notion-page-link:hover {
+  background: none;
 }
 
 .notion-code {
@@ -223,22 +215,18 @@
 .notion-orange_background,
 .notion-brown_background,
 .notion-gray_background {
-  padding: 0 0.5rem;
-  margin: 0 -0.5rem 0 -0.25rem;
-  border-radius: 0.5rem;
-  border-bottom-left-radius: 0.125rem;
-  box-decoration-break: clone;
-
-  background-color: none;
-
-  /* light yellow */
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
   background-image: linear-gradient(
-    119deg,
-    var(--bg-color),
-    #fff697 10.5%,
-    #fdf59d 85.29%,
-    var(--bg-color)
+    to right,
+    rgba(255, 225, 0, 0.1),
+    rgba(255, 225, 0, 0.7) 4%,
+    rgba(255, 225, 0, 0.3)
   );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .notion-purple_background,
@@ -319,9 +307,8 @@
 }
 
 /* if you don't want rounded page images, remove this */
-.notion-page-icon-wrapper img.notion-page-icon {
-  border-radius: 50%;
-  box-shadow: 0 8px 40px 0 rgb(0 0 0 / 21%);
+.notion-page-icon-wrapper {
+  justify-content: flex-start;
 }
 
 .notion-header {
