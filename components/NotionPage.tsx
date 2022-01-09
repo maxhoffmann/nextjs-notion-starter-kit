@@ -4,8 +4,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import cs from "classnames";
 import { useRouter } from "next/router";
-import { useSearchParam } from "react-use";
-import BodyClassName from "react-body-classname";
 import { PageBlock } from "notion-types";
 
 import { Tweet, TwitterContextProvider } from "react-static-tweets";
@@ -35,39 +33,12 @@ import { PageHead } from "./PageHead";
 import { PageActions } from "./PageActions";
 import { Footer } from "./Footer";
 import { PageSocial } from "./PageSocial";
-import { GitHubShareButton } from "./GitHubShareButton";
 
 import styles from "./styles.module.css";
-
-// const Code = dynamic(() =>
-//   import('react-notion-x').then((notion) => notion.Code)
-// )
-//
-// const Collection = dynamic(() =>
-//   import('react-notion-x').then((notion) => notion.Collection)
-// )
-//
-// const CollectionRow = dynamic(
-//   () => import('react-notion-x').then((notion) => notion.CollectionRow),
-//   {
-//     ssr: false
-//   }
-// )
-
-// TODO: PDF support via "react-pdf" package has numerous troubles building
-// with next.js
-// const Pdf = dynamic(
-//   () => import('react-notion-x').then((notion) => notion.Pdf),
-//   { ssr: false }
-// )
 
 const Equation = dynamic(() =>
   import("react-notion-x").then((notion) => notion.Equation)
 );
-
-// we're now using a much lighter-weight tweet renderer react-static-tweets
-// instead of the official iframe-based embed widget from twitter
-// const Tweet = dynamic(() => import('react-tweet-embed'))
 
 const Modal = dynamic(
   () => import("react-notion-x").then((notion) => notion.Modal),
@@ -81,13 +52,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   pageId,
 }) => {
   const router = useRouter();
-  const lite = useSearchParam("lite");
-
   const params: any = {};
-  if (lite) params.lite = lite;
-
-  // lite mode is for oembed
-  const isLiteMode = lite === "true";
   const searchParams = new URLSearchParams(params);
 
   if (router.isFallback) {
@@ -131,7 +96,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageDescription(block, recordMap) ?? config.description;
 
-  let comments: React.ReactNode = null;
   let pageAside: React.ReactChild = null;
 
   // only display comments and page actions on blog post pages
@@ -198,8 +162,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
       <CustomFont site={site} />
 
-      {isLiteMode && <BodyClassName className="notion-lite" />}
-
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
@@ -239,7 +201,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         }}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
-        fullPage={!isLiteMode}
         previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
         showTableOfContents={showTableOfContents}
@@ -249,12 +210,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
-        pageFooter={comments}
         pageAside={pageAside}
         footer={<Footer />}
       />
-
-      <GitHubShareButton />
     </TwitterContextProvider>
   );
 };
