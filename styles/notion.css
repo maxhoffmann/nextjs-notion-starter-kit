@@ -1,3 +1,8 @@
+.notion-header {
+  background: hsla(0, 0%, 100%, 0.8);
+  backdrop-filter: saturate(180%) blur(16px);
+}
+
 .notion-red_background,
 .notion-pink_background,
 .notion-blue_background,
@@ -21,7 +26,9 @@
   box-decoration-break: clone;
 }
 
-.notion-header {
-  background: hsla(0, 0%, 100%, 0.8);
-  backdrop-filter: saturate(180%) blur(16px);
+@media only screen and (max-width: 730px) {
+  .notion-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
