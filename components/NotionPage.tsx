@@ -158,8 +158,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         <title>{title}</title>
       </Head>
 
-      <CustomFont site={site} />
-
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
