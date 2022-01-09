@@ -1,4 +1,4 @@
-# progressiveperspektive.org
+# progressive-perspektive.org
 
 ## Intro
 
