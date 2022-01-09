@@ -1,14 +1,14 @@
-import React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { IconContext } from 'react-icons'
+import React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { IconContext } from "react-icons";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <Html lang='en'>
+      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+        <Html lang="en">
           <Head>
-            <link rel='shortcut icon' href='/favicon.png' />
+            {/* <link rel='shortcut icon' href='/favicon.png' />
 
             <link
               rel='apple-touch-icon'
@@ -32,9 +32,9 @@ export default class MyDocument extends Document {
               type='image/png'
               sizes='16x16'
               href='/favicon-16x16.png'
-            />
+            /> */}
 
-            <link rel='manifest' href='/manifest.json' />
+            <link rel="manifest" href="/manifest.json" />
           </Head>
 
           <body>
@@ -44,6 +44,6 @@ export default class MyDocument extends Document {
           </body>
         </Html>
       </IconContext.Provider>
-    )
+    );
   }
 }
