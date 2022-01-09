@@ -15,12 +15,7 @@
   "ignorePatterns": ["**/*.js", "**/*.jsx"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "standard",
-    "standard-react",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended"],
   "env": { "browser": true, "node": true },
   "rules": {
     "@typescript-eslint/no-explicit-any": 0,
