@@ -198,6 +198,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
           equation: Equation,
         }}
         recordMap={recordMap}
+        fullPage={true}
         rootPageId={site.rootNotionPageId}
         previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
