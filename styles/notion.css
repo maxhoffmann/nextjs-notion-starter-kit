@@ -1,8 +1,15 @@
+/* make notion header a bit prettier */
 .notion-header {
   background: hsla(0, 0%, 100%, 0.8);
   backdrop-filter: saturate(180%) blur(16px);
 }
 
+/* hide big icon on pages */
+.notion-page-icon-wrapper {
+  display: none;
+}
+
+/* always highlight text in yellow for now */
 .notion-red_background,
 .notion-pink_background,
 .notion-blue_background,
@@ -33,6 +40,7 @@
   }
 }
 
+/* remove grey background from iframes */
 .notion-asset-wrapper iframe {
   background: none;
 }
