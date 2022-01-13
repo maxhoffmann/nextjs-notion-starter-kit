@@ -9,6 +9,11 @@
   display: none;
 }
 
+/* remove border from callout boxes */
+.notion-callout {
+  border: none;
+}
+
 /* always highlight text in yellow for now */
 .notion-red_background,
 .notion-pink_background,
